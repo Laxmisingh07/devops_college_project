@@ -8,8 +8,9 @@ app = Flask(__name__)
 def get_orders():
 
     product_response = requests.get(
-        "http://localhost:5002/products"
-    )
+    "http://product-service:5002/products"
+)
+    
 
     products = product_response.json()
 

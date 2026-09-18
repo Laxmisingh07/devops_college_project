@@ -1,0 +1,17 @@
+services:
+
+  product-service:
+    build: ./product-service
+    container_name: product-container
+    ports:
+      - "5002:5002"
+
+  order-service:
+    build: ./order-service
+    container_name: order-container
+    ports:
+      - "5001:5001"
+    environment:
+      PRODUCT_SERVICE_URL: http://product-service:5002
+    depends_on:
+      - product-service
