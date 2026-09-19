@@ -12,19 +12,19 @@ pipeline {
 
         stage('Build Docker Images') {
             steps {
-                bat 'docker compose build'
+                bat '"C:\\Users\\laxmi\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" compose build'
             }
         }
 
         stage('Deploy Application') {
             steps {
-                bat 'docker compose up -d'
+                bat '"C:\\Users\\laxmi\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" compose up -d'
             }
         }
 
         stage('Verify Services') {
             steps {
-                bat 'docker ps'
+                bat '"C:\\Users\\laxmi\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" ps'
             }
         }
     }
