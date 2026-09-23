@@ -1,5 +1,14 @@
 services:
 
+  frontend:
+    build: ./frontend
+    container_name: frontend-container
+    ports:
+      - "3000:80"
+    depends_on:
+      - product-service
+      - order-service
+
   product-service:
     build: ./product-service
     container_name: product-container
@@ -11,7 +20,5 @@ services:
     container_name: order-container
     ports:
       - "5001:5001"
-    environment:
-      PRODUCT_SERVICE_URL: http://product-service:5002
     depends_on:
       - product-service
